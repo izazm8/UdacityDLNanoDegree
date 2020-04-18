@@ -5,18 +5,18 @@ import numpy as np
 def prepare_inputs(inputs):
     # TODO: create a 2-dimensional ndarray from the given 1-dimensional list;
     #       assign it to input_array
-    input_array = np.array(inputs)
-    input_array = np.reshape(input_array,(1,input_array.shape[0]))
+    input_array = np.array([inputs])
+    #input_array = np.reshape(input_array,(1,input_array.shape[0]))
     
     # TODO: find the minimum value in input_array and subtract that
     #       value from all the elements of input_array. Store the
     #       result in inputs_minus_min
-    inputs_minus_min = input_array - np.amin(input_array)
+    inputs_minus_min = input_array - np.min(input_array)
 
     # TODO: find the maximum value in inputs_minus_min and divide
     #       all of the values in inputs_minus_min by the maximum value.
     #       Store the results in inputs_div_max.
-    inputs_div_max = inputs_minus_min / np.amax(inputs_minus_min)
+    inputs_div_max = inputs_minus_min / np.max(inputs_minus_min)
 
     # return the three arrays we've created
     return input_array, inputs_minus_min, inputs_div_max
@@ -45,11 +45,11 @@ def multiply_inputs(m1, m2):
 
 def find_mean(values):
     # TODO: Return the average of the values in the given Python list
-    sum=0
-    for val in values:
-        sum+=val
-    return sum/len(values)
-    #return np.mean(values)
+    # sum=0
+    # for val in values:
+    #     sum+=val
+    # return sum/len(values)
+    return np.mean(values)
 
 
 input_array, inputs_minus_min, inputs_div_max = prepare_inputs([-1,2,7])
