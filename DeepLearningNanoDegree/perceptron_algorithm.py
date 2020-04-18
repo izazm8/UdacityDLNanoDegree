@@ -17,6 +17,15 @@ def prediction(X, W, b):
 # and return W and b.
 def perceptronStep(X, y, W, b, learn_rate = 0.01):
     # Fill in code
+    predicted_output = prediction(X[i],W,b)
+    if y[i] - predicted_output == 1: #if required is 1 but predicted 0
+        W[0] += X[i][0]*learn_rate
+        W[1] += X[i][1]*learn_rate 
+        b += learn_rate
+    elif  y[i] - predicted_output == -1: 
+        W[0] -= X[i][0]*learn_rate
+        W[1] -= X[i][1]*learn_rate
+        b-= learn_rate
     
     
     return W, b
